@@ -86,5 +86,5 @@ export const loginAdmin = asyncHandler(async (req, res, next) => {
 export const checkAdminAuthenticated = asyncHandler(async (req, res, next) => {
   return res
     .status(200)
-    .json(new ApiResponse(200, null, "User is authenticated"));
+    .json(new ApiResponse(200, null, "Admin is authenticated"));
 });

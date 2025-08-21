@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
+import mongooseAggregate from "mongoose-aggregate-paginate-v2";
 
 const customerSchema = new mongoose.Schema(
   {
@@ -41,6 +40,8 @@ const customerSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+customerSchema.plugin(mongooseAggregate);
 
 const Customers = mongoose.model("Customer", customerSchema);
 

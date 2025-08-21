@@ -42,6 +42,6 @@ const customerSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Customers = mongoose.Model("Customer", customerSchema);
+const Customers = mongoose.model("Customer", customerSchema);
 
 export default Customers;

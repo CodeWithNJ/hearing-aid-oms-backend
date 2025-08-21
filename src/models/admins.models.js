@@ -17,8 +17,14 @@ const adminSchema = new mongoose.Schema(
       required: [true, "username is a mandatory field."],
       unique: true,
     },
-    password: {},
-    refresh_token: {},
+    password: {
+      type: String,
+      trim: true,
+      required: [true, "password is a mandatory field."],
+    },
+    refresh_token: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
@@ -61,6 +67,6 @@ adminSchema.methods.generateRefreshToken = async function () {
   );
 };
 
-const Admins = mongoose.Model("Admin", adminSchema);
+const Admins = mongoose.model("Admin", adminSchema);
 
 export default Admins;

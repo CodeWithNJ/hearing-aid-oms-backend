@@ -57,6 +57,6 @@ const hearingAidsSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const HearingAids = mongoose.Model("HearingAids", hearingAidsSchema);
+const HearingAids = mongoose.model("HearingAids", hearingAidsSchema);
 
 export default HearingAids;

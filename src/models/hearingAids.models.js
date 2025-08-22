@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongooseAggregate from "mongoose-aggregate-paginate-v2";
 
 const hearingAidsSchema = new mongoose.Schema(
   {
@@ -56,6 +57,8 @@ const hearingAidsSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+hearingAidsSchema.plugin(mongooseAggregate);
 
 const HearingAids = mongoose.model("HearingAids", hearingAidsSchema);
 

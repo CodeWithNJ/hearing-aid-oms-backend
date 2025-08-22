@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.route.js";
 import customerRouter from "./routes/customer.route.js";
 import hearingAidRouter from "./routes/hearingAids.route.js";
+import orderRouter from "./routes/order.route.js";
 
 const app = express();
 
@@ -20,5 +21,6 @@ app.use(cors());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/customers", customerRouter);
 app.use("/api/v1/hearing-aids", hearingAidRouter);
+app.use("/api/v1/orders", orderRouter);
 
 export default app;

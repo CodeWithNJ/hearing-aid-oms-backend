@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongooseAggregate from "mongoose-aggregate-paginate-v2";
 
 const ordersSchema = new mongoose.Schema(
   {
@@ -21,7 +22,8 @@ const ordersSchema = new mongoose.Schema(
       type: Date,
     },
     tracking_number: {
-      type: Number,
+      type: String,
+      unique: true,
     },
     notes: {
       type: String,
@@ -30,6 +32,8 @@ const ordersSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+ordersSchema.plugin(mongooseAggregate);
 
 const Orders = mongoose.model("Orders", ordersSchema);
 

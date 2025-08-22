@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongooseAggregate from "mongoose-aggregate-paginate-v2";
 
 const appointmentSchema = new mongoose.Schema(
   {
@@ -21,6 +22,7 @@ const appointmentSchema = new mongoose.Schema(
     status: {
       type: String,
       enum: ["pending", "completed", "cancelled"],
+      default: "pending",
     },
     notes: {
       type: String,
@@ -30,6 +32,8 @@ const appointmentSchema = new mongoose.Schema(
 
   { timestamps: true }
 );
+
+appointmentSchema.plugin(mongooseAggregate);
 
 const Appointments = mongoose.model("Appointment", appointmentSchema);
 
